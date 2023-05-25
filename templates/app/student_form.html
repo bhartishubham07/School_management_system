@@ -1,0 +1,20 @@
+{% extends 'app/dummy.html' %}
+{% load static %}
+
+{% block title %}
+<title>Create</title>
+{% endblock %}
+
+{% block body_block %}
+
+<h1>Fill Student Details</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Create">
+</form>
+
+{% endblock %}

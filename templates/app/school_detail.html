@@ -1,0 +1,48 @@
+{% extends 'app/dummy.html' %}
+{% load static %}
+
+{% block title %}
+<title>Details</title>
+{% endblock %}
+
+{% block body_block %}
+
+<h1 class="alert alert-danger">Details of {{sclobject.name}}</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th class="fw-bold">School_ID</th>
+        <th class="fw-bold">School_name</th>
+        <th class="fw-bold">Principal</th>
+        <th class="fw-bold">Location</th>
+        <th class="fw-bold">Action</th>
+    </tr>
+    <tr>
+        <td>{{sclobject.id}}</td>
+        <td>{{sclobject.name}}</td>
+        <td>{{sclobject.principal}}</td>
+        <td>{{sclobject.location}}</td>
+        <td><a href="{% url 'SchoolUpdate' pk=sclobject.pk %}" class="btn btn-warning">Update</a>
+        <a href="{% url 'SchoolDelete' pk=sclobject.pk %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+
+<h1 class="alert alert-danger">Details of Students are :</h1>
+<table class="table table-bordered">
+    <tr>
+        <th class="fw-bold">Student_ID</th>
+        <th class="fw-bold">Student_name</th>
+        <th class="fw-bold">Student_age</th>
+        <th class="fw-bold">Action</th>
+    </tr>
+    
+    {% for stu in sclobject.students.all %}
+        <tr>
+            <td>{{stu.id}}</td>
+            <td>{{stu.sname}}</td>
+            <td>{{stu.sage}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

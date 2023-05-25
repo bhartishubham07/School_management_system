@@ -1,0 +1,23 @@
+{% extends 'app/dummy.html' %}
+{% load static %}
+
+{% block title %}
+<title>List of Schools</title>
+{% endblock %}
+
+{% block body_block %}
+<h1 class="alert alert-secondary">SCHOOLS</h1>
+<center>
+    <table class="table table-bordered">
+        <tr>
+            <th><h1>List of Schools</h1></th>
+        </tr>
+        {% for school in schools %}
+            <tr>
+                <td><a href="{{school.pk}}" class="text-decoration-none fw-bold"><h1>{{school.name}}</h1><br></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</center>
+
+{% endblock %}
